@@ -1,6 +1,6 @@
 const cors = require("cors");
 const express = require("express");
-const ACTIONS = require("../frontend/src/Actions.js")
+const ACTIONS = require("../frontend/src/Actions.js");
 const app = express();
 
 const http = require("http"); // it is inbuilt in node
@@ -73,9 +73,9 @@ io.on("connection", (socket) => {
     socket.leave();
   });
 });
-server.get("/",(req,res)=>{
-  res.send("hello")
-})
+app.get("/", (req, res) => {
+  res.send("hello");
+});
 
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => {
