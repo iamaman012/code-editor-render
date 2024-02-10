@@ -73,6 +73,9 @@ io.on("connection", (socket) => {
     socket.leave();
   });
 });
+server.get("/",(req,res)=>{
+  res.send("hello")
+})
 
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => {
