@@ -15,6 +15,10 @@ const io = new Server(server, {
   },
 }); // crate an instance of server class of socket.io
 app.use(cors);
+app.get("/", (req, res) => {
+  res.send("hello");
+});
+
 const userSocketMap = {};
 function getAllConnectedClients(roomId) {
   return Array.from(io.sockets.adapter.rooms.get(roomId) || []).map(
@@ -73,9 +77,7 @@ io.on("connection", (socket) => {
     socket.leave();
   });
 });
-app.get("/", (req, res) => {
-  res.send("hello");
-});
+
 
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => {
